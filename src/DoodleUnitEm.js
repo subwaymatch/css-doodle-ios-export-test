@@ -47,8 +47,8 @@ export default function ExportTest() {
                 position: absolute;
                 top: @calc(26.66 + @i() * 3.33)%;
                 left: 20%;
-                border-top-left-radius: 320px;
-                border-top-right-radius: 320px;
+                border-top-left-radius: 30rem;
+                border-top-right-radius: 30rem;
                 background-image: linear-gradient(45deg, var(--color2), var(--color3));
                 overflow: hidden;
                 /* 0.2 could be 0.2, 0.4, 0.6, 0.8, 1.0 */
@@ -63,8 +63,8 @@ export default function ExportTest() {
                 position: absolute;
                 top: 50%;
                 left: @calc(10 + (@i() - 6) * 10)%;
-                border-bottom-left-radius: 320px;
-                border-bottom-right-radius: 320px;
+                border-bottom-left-radius: 30rem;
+                border-bottom-right-radius: 30rem;
                 background-image: linear-gradient(45deg, var(--color4), var(--color5));
                 overflow: hidden;
                 /* 0.2 could be 0.2, 0.4, 0.6, 0.8, 1.0 */
