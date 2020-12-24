@@ -1,0 +1,98 @@
+import React, { useRef } from "react";
+import "css-doodle";
+
+export default function ExportTest() {
+  const doodleRef = useRef();
+
+  const exportArtwork = async () => {
+    let result = await doodleRef.current.export({
+      scale: 15.5,
+      download: true
+    });
+  };
+
+  return (
+    <div>
+      <h1>Doodle Export Test (using px)</h1>
+      <p>Exporting this artwork doesn't work on iOS devices.</p>
+      <button onClick={exportArtwork}>Export</button>
+
+      <style>
+        {`
+          css-doodle#export-test {
+            --color0: #77D4DF;
+            --color1: #77D4DF;
+            --color2: #00FFF3;
+            --color3: #00A1FF;
+            --color4: #FF8DFF;
+            --color5: #FF007E;
+            --rule: (
+              :doodle {
+                @grid: 1x13;
+                @size: 360px 540px;
+                overflow: hidden;
+                overflow: hidden;
+                text-align: center;
+                box-sizing: border-box
+              }
+              
+               :container {
+                background: var(--color0);
+                overflow: hidden;
+              }
+              
+              @nth(1, 2, 3, 4, 5, 6) {
+                width: @calc(70 - @i() * 10)%;
+                height: @calc(23.33 - @i() * 3.33)%;
+                position: absolute;
+                top: @calc(26.66 + @i() * 3.33)%;
+                left: 20%;
+                border-top-left-radius: 320px;
+                border-top-right-radius: 320px;
+                background-image: linear-gradient(45deg, var(--color2), var(--color3));
+                overflow: hidden;
+                /* 0.2 could be 0.2, 0.4, 0.6, 0.8, 1.0 */
+                transform: scaleX(@pick(@rand(-0.6, -1), @rand(0.6, 1)));
+                -webkit-transition: ease 400ms;
+                transition: ease 400ms;
+                z-index: @i();
+              }
+              @nth(7, 8, 9, 10, 11, 12) {
+                width: @calc(70 - (@i() - 6) * 10)%;
+                height: @calc(23.33 - (@i() - 6) * 3.33)%;
+                position: absolute;
+                top: 50%;
+                left: @calc(10 + (@i() - 6) * 10)%;
+                border-bottom-left-radius: 320px;
+                border-bottom-right-radius: 320px;
+                background-image: linear-gradient(45deg, var(--color4), var(--color5));
+                overflow: hidden;
+                /* 0.2 could be 0.2, 0.4, 0.6, 0.8, 1.0 */
+                -webkit-transform: scaleX(@pick(@rand(-0.6, -1), @rand(0.6, 1)));
+                transform: scaleX(@pick(@rand(-0.2, -1), @rand(0.6, 1)));
+                -webkit-transition: ease 400ms;
+                transition: ease 400ms;
+                z-index: @i();
+              }
+              /* Background */
+              @nth(13) {
+                position: absolute;
+                background: linear-gradient(0deg, var(--color1) 50%, var(--color0) 50%);
+                width: 300%;
+                left: -100%;
+                top: -50%;
+                height: 200%;
+              }
+            );
+          }
+        `}
+      </style>
+      <css-doodle
+        id="export-test"
+        seed="0000"
+        use="var(--rule)"
+        ref={doodleRef}
+      />
+    </div>
+  );
+}
