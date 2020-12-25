@@ -6,7 +6,7 @@ export default function ExportTest() {
 
   const exportArtwork = async () => {
     let result = await doodleRef.current.export({
-      scale: 15.5,
+      scale: 8,
       download: true,
     });
   };
@@ -30,7 +30,7 @@ export default function ExportTest() {
             --rule: (
               :doodle {
                 @grid: 1x13;
-                @size: 10em 15em;
+                @size: 20em 30em;
                 overflow: hidden;
               }
 
