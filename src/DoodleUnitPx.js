@@ -1,12 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import 'css-doodle';
 
 export default function ExportTest() {
   const doodleRef = useRef();
+  const [size, setSize] = useState('360px 540px');
+  const [scale, setScale] = useState(9);
 
   const exportArtwork = async () => {
     let result = await doodleRef.current.export({
-      scale: 5,
+      scale,
       download: true,
     });
   };
@@ -14,7 +16,11 @@ export default function ExportTest() {
   return (
     <div>
       <h1>Doodle Export Test (using px)</h1>
-      <p>Exporting this artwork doesn't work on iOS devices.</p>
+      <p>
+        Export scale: {scale}
+        <br />
+        Doodle @size: {size}
+      </p>
       <button onClick={exportArtwork}>Export</button>
 
       <style>
@@ -29,7 +35,7 @@ export default function ExportTest() {
             --rule: (
               :doodle {
                 @grid: 1x13;
-                @size: 360px 540px;
+                @size: ${size};
                 overflow: hidden;
                 overflow: hidden;
                 text-align: center;
