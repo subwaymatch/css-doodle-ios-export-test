@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
-import "css-doodle";
+import React, { useRef } from 'react';
+import 'css-doodle';
 
 export default function ExportTest() {
   const doodleRef = useRef();
 
   const exportArtwork = async () => {
     let result = await doodleRef.current.export({
-      scale: 15.5,
-      download: true
+      scale: 5,
+      download: true,
     });
   };
 

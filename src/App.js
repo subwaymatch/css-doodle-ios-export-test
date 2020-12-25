@@ -24,9 +24,9 @@ export default function App() {
               <Link to="/doodle-unit-px">Using px</Link>
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/doodle-live-test">Live Test</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
@@ -41,9 +41,9 @@ export default function App() {
             <DoodleUnitPx />
           </Route>
 
-          {/* <Route path="/doodle-live-test">
+          <Route path="/doodle-live-test">
             <DoodleLiveTest />
-          </Route> */}
+          </Route>
 
           <Route path="/">
             <h1>CSS-Doodle Export Test</h1>
