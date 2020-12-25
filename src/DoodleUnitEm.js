@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import "css-doodle";
+import React, { useRef } from 'react';
+import 'css-doodle';
 
 export default function ExportTest() {
   const doodleRef = useRef();
@@ -7,7 +7,7 @@ export default function ExportTest() {
   const exportArtwork = async () => {
     let result = await doodleRef.current.export({
       scale: 15.5,
-      download: true
+      download: true,
     });
   };
 
@@ -26,20 +26,15 @@ export default function ExportTest() {
             --color3: #00A1FF;
             --color4: #FF8DFF;
             --color5: #FF007E;
+
             --rule: (
               :doodle {
                 @grid: 1x13;
-                @size: 20rem 30rem;
-                overflow: hidden;
-                overflow: hidden;
-                text-align: center;
-                box-sizing: border-box
-              }
-              
-               :container {
-                background: var(--color0);
+                @size: 10em 15em;
                 overflow: hidden;
               }
+
+              background: var(--color0);
               
               @nth(1, 2, 3, 4, 5, 6) {
                 width: @calc(70 - @i() * 10)%;
